@@ -25,12 +25,10 @@ if (currentUser) {
 }
 //logout function
 logoutBtn.addEventListener("click", () => {
-  console.log(currentUser);
-
   window.location = "../signUp-login/login.html";
   localStorage.removeItem("currentUser");
 });
-// //in every page
+ //in every page
 
 //submit btn function
 formBtn.addEventListener("click", (e) => {
@@ -44,11 +42,11 @@ formBtn.addEventListener("click", (e) => {
     phone.value !== "" &&
     major.value !== ""
   ) {
-    let arrOfusers = [];
+    
 
     currentUser.df = true;
 
-    (currentUser.userInfo = {
+    ( currentUser.userInfo = {
       //object
       first_Name: fistName.value,
       last_Name: lastName.value,
@@ -57,13 +55,12 @@ formBtn.addEventListener("click", (e) => {
       gpa: gpa.value,
       address: address.value,
       phone: phone.value,
-    }),
-      console.log(currentUser.df);
-
+    });
+     
+   // to update on users array
     const updateArr = array.map((ele) => {
-      return ele.email === currentUser.email
-        ? {
-            ...ele,
+      return ele.email === currentUser.email ? {
+            ...ele, //just update on key of the element
             df: true,
             userInfo: {
               //object
@@ -78,8 +75,8 @@ formBtn.addEventListener("click", (e) => {
           }
         : ele;
     });
-    console.log(updateArr);
-
+    // console.log(updateArr);
+      
     localStorage.setItem("users", JSON.stringify(updateArr));
 
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
@@ -88,6 +85,7 @@ formBtn.addEventListener("click", (e) => {
       window.location = "../landing.html";
     }, 100);
     e.preventDefault();
+    //if user dosent fill all fileds display message
   } else {
     fill.style.display = "block";
     e.preventDefault();

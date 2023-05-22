@@ -32,8 +32,6 @@ logoutBtn.addEventListener("click", () => {
 });
 //in every page
 
-console.log(currentUser.userInfo.phone);
-console.log(updateArrUserInfo);
 
 firstName.innerHTML += currentUser.userInfo.first_Name;
 

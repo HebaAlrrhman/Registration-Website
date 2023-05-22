@@ -3,13 +3,12 @@ let LastName = document.querySelector("#lastName");
 let email = document.querySelector("#Email");
 let password = document.querySelector("#password");
 let confPassword = document.querySelector("#confirmPassword");
-
 let signUp_btn = document.querySelector(".signupBtn");
 let alreadyHaveAcc = document.querySelector(".alreadyHaveAcc");
-
-let userNameVal = userName.value;
 let error = document.querySelector(".error");
 
+let userNameVal = userName.value;
+// sign up btn
 signUp_btn.addEventListener("click", (e) => {
   if (
     userName.value == "" ||
@@ -29,6 +28,7 @@ signUp_btn.addEventListener("click", (e) => {
     return (error.innerText = `* Your password is not match the confirm password`);
 
   let usersArr = JSON.parse(localStorage.getItem("users")) || [];
+  // user object
   let user = {
     userName: userName.value,
     LastName: LastName.value,
@@ -58,9 +58,6 @@ signUp_btn.addEventListener("click", (e) => {
 
   localStorage.setItem("users", JSON.stringify(usersArr));
 
-  // setTimeout(function () {
-  //   window.location = "../landing.html";
-  // }
   setTimeout(() => {
     //window.location;
     window.location = "login.html";
@@ -68,6 +65,7 @@ signUp_btn.addEventListener("click", (e) => {
 
   e.preventDefault();
 });
+
 alreadyHaveAcc.addEventListener("click", () => {
   setTimeout(() => {
     //window.location;

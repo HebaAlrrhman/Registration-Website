@@ -327,14 +327,6 @@ const generate = function () {
 generate();
 
 //Delete any previous checked
-// const deselectAnswers = () => {
-//   holdAnswer.map(answer => {
-//   answer.checked = false;
-//     return answer;
-//   });
-// };
-
-//Delete any previous checked
 const deselectAnswers = () => {
   holdAnswer.forEach((answer) => (answer.checked = false));
 };
@@ -365,9 +357,7 @@ const timer = setInterval(() => {
     currentUser.techScore = score;
 
     console.log(currentUser.techFlag);
-    // let techFlag = currentUser.df;
-    // Dflag = true;
-
+  
     const updateArr = array.map((ele) => {
       return ele.email === currentUser.email
         ? { ...ele, techFlag: true, techScore: score }
@@ -377,6 +367,7 @@ const timer = setInterval(() => {
     localStorage.setItem("users", JSON.stringify(updateArr));
 
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
+   
     popup.classList.add("active");
     popupScore.innerText = `Your Score is : ${score}`;
 
@@ -388,6 +379,7 @@ const timer = setInterval(() => {
 
     return;
   }
+
   holderMin.innerText = min + ":";
   holderSec.innerText = sec.toString().padStart(2, "0");
 }, 1000);
@@ -407,19 +399,14 @@ btn.addEventListener("click", (e) => {
 
     currentUser.techFlag = true;
     currentUser.techScore = score;
-
-    console.log(currentUser.techFlag);
-    // let techFlag = currentUser.df;
-    // Dflag = true;
-
+    
     const updateArr = array.map((ele) => {
       return ele.email === currentUser.email
         ? { ...ele, techFlag: true, techScore: score }
         : ele;
     });
-    // localStorage.setItem("Df", df);
+   
     localStorage.setItem("users", JSON.stringify(updateArr));
-
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
 
     popup.classList.add("active");
@@ -440,7 +427,6 @@ btn.addEventListener("click", (e) => {
 });
 
 // Load new question
-// let QusetionIndex = 0;
 const loadQusetion = () => {
   deselectAnswers();
   const currentQuiz = newArrayQuations[currIdx];
@@ -452,15 +438,3 @@ const loadQusetion = () => {
 };
 loadQusetion();
 
-// let currentIdx=0;
-// const nextbtn= btn.addEventListener(  "click",(e) =>{
-//   const inputUser =getSelected();
-//   currentIdx++;
-//   if(currentIdx< newArrayQuations.length)
-//   loadQusetion();
-//   else{
-//   ' <button>Submit</button>'
-
-//   }
-//   e.preventDefault();
-// });
